@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Najmiya! ✨</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        softpink: '#FFC8DD',
+                        softyellow: '#FFE5EC',
+                        pastelpink: '#FFAFCC',
+                        pastelyellow: '#FFF0F5',
+                        brandyellow: '#FEF08A',
+                        brandpink: '#F472B6'
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                        cursive: ['Sacramento', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #FFF5F7 0%, #FEFCE8 50%, #FFC8DD 100%);
+            min-height: 100vh;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .pulse-heart {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF0F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F472B6;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="text-gray-700 font-sans antialiased relative overflow-x-hidden pb-12">
+
+    <!-- Ambient Floating Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-10 left-10 text-pink-300 text-3xl floating" style="animation-delay: 0s;">✨</div>
+        <div class="absolute top-1/4 right-10 text-yellow-300 text-4xl floating" style="animation-delay: 1s;">🌸</div>
+        <div class="absolute bottom-10 left-1/3 text-pink-400 text-3xl floating" style="animation-delay: 1.5s;">💖</div>
+        <div class="absolute top-1/2 left-5 text-yellow-400 text-2xl floating" style="animation-delay: 0.5s;">⭐</div>
+        <div class="absolute bottom-1/4 right-5 text-pink-300 text-4xl floating" style="animation-delay: 2s;">🎀</div>
+    </div>
+
+    <!-- Music Player Controls -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="musicToggle" onclick="toggleMusic()" class="bg-white/80 backdrop-blur-md border-2 border-pink-300 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2 text-pink-600 font-semibold text-sm hover:bg-pink-50 transition">
+            <span id="musicIcon">🎵</span>
+            <span id="musicText">Putar Musik</span>
+        </button>
+        <!-- Backing Track Audio (Happy Birthday Instrumental) -->
+        <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a815a3.mp3?filename=happy-birthday-155461.mp3"></audio>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 max-w-2xl relative z-10">
+
+        <!-- Header Banner -->
+        <div class="text-center mb-8 floating">
+            <span class="inline-block bg-pink-100 text-pink-600 font-bold px-4 py-1.5 rounded-full text-sm mb-3 tracking-wide border border-pink-200">
+                🎉 Special Day For You 🎉
+            </span>
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-pink-500 tracking-tight drop-shadow-sm">
+                Happy Birthday, <br/>
+                <span class="font-cursive text-5xl md:text-6xl text-yellow-500 font-normal">Najmiya!</span> ✨
+            </h1>
+        </div>
+
+        <!-- Main Photo Card -->
+        <div class="bg-white/90 backdrop-blur-md p-4 md:p-6 rounded-3xl shadow-xl border-4 border-yellow-200 text-center mb-8 relative">
+            <div class="absolute -top-4 -left-4 text-3xl">🎀</div>
+            <div class="absolute -bottom-3 -right-3 text-3xl">💛</div>
+            
+            <div class="relative inline-block mx-auto mb-4 group">
+                <div class="p-2 bg-gradient-to-tr from-pink-300 to-yellow-200 rounded-2xl shadow-md transform rotate-1 transition group-hover:rotate-0 duration-300">
+                    <img src="https://lh3.googleusercontent.com/d/1XfKq2B1oE4gEaXlS-m9Q-5vY5L_0qQe0" alt="Foto Najmiya" class="w-64 h-auto md:w-72 rounded-xl object-cover border-2 border-white shadow-inner">
+                </div>
+            </div>
+            
+            <p class="font-display text-pink-500 font-semibold text-lg">"Selamat bertambah usia buat cewek manis ini!" 🧁</p>
+        </div>
+
+        <!-- Interactive Envelope / Letter Section -->
+        <div class="bg-gradient-to-br from-pink-100 to-yellow-100 p-6 md:p-8 rounded-3xl shadow-xl border-2 border-pink-200 mb-8">
+            <div class="flex items-center justify-between mb-4 border-b border-pink-200/60 pb-3">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">💌</span>
+                    <h2 class="font-display font-bold text-xl text-pink-600">Surat Spesial Buat Najmiya</h2>
+                </div>
+                <span class="text-xs bg-yellow-200 text-yellow-800 font-bold px-2.5 py-1 rounded-full">Tap to read</span>
+            </div>
+
+            <!-- Long Text Content -->
+            <div class="bg-white/90 p-5 md:p-6 rounded-2xl shadow-sm border border-pink-100 text-gray-700 leading-relaxed text-sm md:text-base space-y-4">
+                <p class="font-semibold text-pink-500">Haloo Najmiya! ✨</p>
+                
+                <p>
+                    Sebelumnya, aku mau minta maaf yang sebesar-besarnya yaaa karena telat banget ngucapin ucapan ulang tahun ini ke kamu 🥺🙏
+                </p>
+
+                <p>
+                    Jujur kemarin-kemarin aku beneran padet banget, sempet kedistraksi sama ngedit video buat lomba dulu, terus ada beberapa urusan lain yang menumpuk. Maaf banget juga ya aku ga sempet bikin ucapan atau story di SG (Snapgram) buat kamu...
+                </p>
+
+                <p>
+                    Dan maaf juga ya Najmiya, untuk ulang tahun kali ini aku belum bisa kasih kado fisik / gift apa-apa ke kamu, karena dompet lagi dalam fase sangat terbatas alias lagi agak bokek huhu 🥹🤏
+                </p>
+
+                <p class="bg-pink-50 p-3 rounded-xl border-l-4 border-pink-400 italic text-pink-700">
+                    Tapi meskipun ga ada kado fisik & ga sempet bikin SG, aku tetep mau kasih sesuatu yang berkesan buat kamu. Makanya, aku luangin waktu khusus buat bikin **website ucapan ulang tahun spesial ini cuma buat Najmiya!** 💻💖
+                </p>
+
+                <p>
+                    Di hari ulang tahun kamu ini, aku berdoa semoga Najmiya panjang umur, sehat selalu, makin tambah pintar, dimudahkan segala urusannya, dan selalu dikelilingi oleh hal-hal baik serta orang-orang yang sayang sama kamu. Semoga semua impian dan cita-cita yang lagi kamu perjuangkan bisa tercapai satu per satu! 🌸✨
+                </p>
+
+                <p class="font-semibold text-right text-pink-500 pt-2">
+                    Semoga suka ya sama websitenya! Happy Birthday Once Again! 🎉🎂
+                </p>
+            </div>
+        </div>
+
+        <!-- Interactive Birthday Cake Section -->
+        <div class="bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl border-4 border-pink-200 text-center mb-8">
+            <h3 class="font-display text-xl font-bold text-pink-500 mb-2">Tiup Lilin & Bikin Harapan! 🎂</h3>
+            <p class="text-xs text-gray-500 mb-4">Klik tombol di bawah untuk meniup lilin & menerbangkan confetti!</p>
+            
+            <div class="text-6xl mb-4 floating cursor-pointer select-none" onclick="triggerConfetti()">
+                🎂
+            </div>
+
+            <button onclick="triggerConfetti()" class="bg-gradient-to-r from-pink-400 to-yellow-400
